@@ -1,20 +1,124 @@
 const data = require("../data/data.json");
 
 module.exports.getRandomUser = (req, res, next) => {
-  res.send("First Random User Check");
+  const result = data[parseInt(Math.random() * data.length)];
+  if (result) {
+    res.status(200).send({
+      success: true,
+      data: result,
+      message: "Success",
+    });
+  } else {
+    res.status(404).send({
+      success: false,
+      message: "Failed",
+    });
+  }
 };
 module.exports.getAllUser = (req, res, next) => {
-  res.send(data);
+  try {
+    res.status(200).send({
+      success: true,
+      data: data,
+      message: "Success",
+    });
+  } catch (error) {
+    res.status(404).send({
+      success: false,
+      error: error,
+      message: "Failed",
+    });
+  }
 };
 module.exports.addUser = (req, res, next) => {
-  res.send("Add User Check");
+  const newUser = req.body;
+  const { id, name, address, contact, photoUrl, gender } = newUser;
+
+  if (id && name && address && contact && photoUrl && gender) {
+    data.push(newUser);
+    res.status(200).send({
+      success: true,
+      data: data,
+      message: "Success",
+    });
+  } else {
+    res.status(404).send({
+      success: false,
+      message: "Failed",
+    });
+  }
 };
 module.exports.updateUser = (req, res, next) => {
-  res.send("Update User Check");
+  const id = req.params.id;
+  const update = req.body;
+  const { name, address, photoUrl, contact, gender } = update;
+
+  const newData = data.filter((item) => item.id == Number(id));
+
+  if (newData) {
+    newData[0].id = id;
+    {
+      name && (newData[0].name = name);
+    }
+    {
+      address && (newData[0].address = address);
+    }
+    {
+      contact && (newData[0].contact = contact);
+    }
+    {
+      photoUrl && (newData[0].photoUrl = photoUrl);
+    }
+    {
+      gender && (newData[0].gender = gender);
+    }
+
+    res.status(200).send({
+      success: true,
+      data: data,
+      message: "Success",
+    });
+  } else {
+    res.status(404).send({
+      success: false,
+      message: "Failed",
+    });
+  }
 };
 module.exports.bulkUpdateUser = (req, res, next) => {
-  res.send("Bulk Update User Check");
+  const updateValue = req.body;
+  if (updateValue) {
+    for (const value of updateValue) {
+      const update = data.filter((item) => item.id == Number(value.id));
+      update[0].name = value.name;
+      update[0].contact = value.contact;
+    }
+    res.status(200).send({
+      success: true,
+      data: data,
+      message: "Success",
+    });
+  } else {
+    res.status(404).send({
+      success: false,
+      message: "Failed",
+    });
+  }
 };
 module.exports.deleteUser = (req, res, next) => {
-  res.send("Delete User Check");
+  const id = req.params.id;
+  const newData = data.filter((item) => item.id !== Number(id));
+
+  if (newData) {
+    res.status(200).send({
+      success: true,
+      data: newData,
+      message: "Success",
+    });
+  } else {
+    res.status(404).send({
+      success: false,
+      message: "Failed",
+    });
+  }
 };

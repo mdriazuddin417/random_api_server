@@ -10,7 +10,7 @@ router.route("/save").post(userController.addUser);
 
 router.route("/update/:id").patch(userController.updateUser);
 
-router.route("/bulk-update/:Id").patch(userController.bulkUpdateUser);
+router.route("/bulk-update").patch(userController.bulkUpdateUser);
 
 router.route("/delete/:id").delete(userController.deleteUser);
 
