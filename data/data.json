@@ -1,0 +1,75 @@
+[
+    {
+      "id": 0,
+      "gender": "male",
+      "name": "Mabel Reeves",
+      "contact": "+1 (993) 406-2696",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "868 Lacon Court, Somerset, Utah, 8224"
+    },
+    {
+      "id": 1,
+      "gender": "female",
+      "name": "Baker Parks",
+      "contact": "+1 (999) 503-2717",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "823 Johnson Street, Colton, North Dakota, 134"
+    },
+    {
+      "id": 2,
+      "gender": "male",
+      "name": "Nola Vinson",
+      "contact": "+1 (906) 429-3846",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "824 Taylor Street, Condon, South Dakota, 2161"
+    },
+    {
+      "id": 3,
+      "gender": "female",
+      "name": "King Cook",
+      "contact": "+1 (978) 564-2861",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "439 Sackett Street, Sunbury, Montana, 766"
+    },
+    {
+      "id": 4,
+      "gender": "male",
+      "name": "Frost Burris",
+      "contact": "+1 (883) 496-3767",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "204 Powell Street, Floris, Marshall Islands, 1161"
+    },
+    {
+      "id": 5,
+      "gender": "male",
+      "name": "Bates Flynn",
+      "contact": "+1 (844) 539-3466",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "253 Wolf Place, Hinsdale, Colorado, 7927"
+    },
+    {
+      "id": 6,
+      "gender": "male",
+      "name": "Corine Melton",
+      "contact": "+1 (956) 441-3966",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "582 Sutter Avenue, Albrightsville, Palau, 5325"
+    },
+    {
+      "id": 7,
+      "gender": "female",
+      "name": "Cecile Moran",
+      "contact": "+1 (967) 545-3566",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "899 Minna Street, Edenburg, Pennsylvania, 7704"
+    },
+    {
+      "id": 8,
+      "gender": "female",
+      "name": "Sandy Mclean",
+      "contact": "+1 (959) 413-3346",
+      "photoUrl": "http://placehold.it/32x32",
+      "address": "213 Grand Street, Warsaw, West Virginia, 5137"
+    }
+  ]
+  
