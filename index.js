@@ -13,12 +13,11 @@ const cors = require("cors");
 const port = process.env.PORT || 5000;
 const app = express();
 const data = require("./data/data.json");
+const UserRouter = require("./routes/v1/user.route");
 app.use(express.json());
 app.use(cors());
 
-app.get("/all", (req, res) => {
-  res.send(data.slice(0, 2));
-});
+app.use("/user", UserRouter);
 
 //===========================Common Server side Property==============
 app.get("/", (req, res) => {
