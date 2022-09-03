@@ -50,14 +50,15 @@ module.exports.addUser = (req, res, next) => {
   }
 };
 module.exports.updateUser = (req, res, next) => {
-  const id = req.params.id;
+  const itemId = req.params.id;
   const update = req.body;
+  const checkId = data.some(({ id }) => id == Number(itemId));
+
   const { name, address, photoUrl, contact, gender } = update;
 
-  const newData = data.filter((item) => item.id == Number(id));
-
-  if (newData) {
-    newData[0].id = id;
+  if (checkId === true) {
+    const newData = data.filter((item) => item.id == Number(itemId));
+    newData[0].id = itemId;
     {
       name && (newData[0].name = name);
     }
@@ -82,7 +83,7 @@ module.exports.updateUser = (req, res, next) => {
   } else {
     res.status(404).send({
       success: false,
-      message: "Failed",
+      message: "Not found Id",
     });
   }
 };
@@ -107,10 +108,12 @@ module.exports.bulkUpdateUser = (req, res, next) => {
   }
 };
 module.exports.deleteUser = (req, res, next) => {
-  const id = req.params.id;
-  const newData = data.filter((item) => item.id !== Number(id));
+  const ItemId = req.params.id;
 
-  if (newData) {
+  const checkId = data.some(({ id }) => id == Number(ItemId));
+  console.log(checkId);
+  if (checkId === true) {
+    const newData = data.filter((item) => item.id !== Number(ItemId));
     res.status(200).send({
       success: true,
       data: newData,
@@ -119,7 +122,7 @@ module.exports.deleteUser = (req, res, next) => {
   } else {
     res.status(404).send({
       success: false,
-      message: "Failed",
+      message: "Not found Id",
     });
   }
 };
