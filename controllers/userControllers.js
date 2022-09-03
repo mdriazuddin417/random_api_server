@@ -16,10 +16,11 @@ module.exports.getRandomUser = (req, res, next) => {
   }
 };
 module.exports.getAllUser = (req, res, next) => {
+  const { limit } = req.query;
   try {
     res.status(200).send({
       success: true,
-      data: data,
+      data: data.slice(0, limit),
       message: "Success",
     });
   } catch (error) {
