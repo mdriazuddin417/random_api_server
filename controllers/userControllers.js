@@ -111,7 +111,7 @@ module.exports.deleteUser = (req, res, next) => {
   const ItemId = req.params.id;
 
   const checkId = data.some(({ id }) => id == Number(ItemId));
-  console.log(checkId);
+
   if (checkId === true) {
     const newData = data.filter((item) => item.id !== Number(ItemId));
     res.status(200).send({
